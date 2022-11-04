@@ -1,23 +1,19 @@
-# Next.js App Directory Playground
+# muoto - Gradually work on your self-image
 
-Next.js introduced the `app/` directory (beta). This is the result of the [Layouts RFC](https://nextjs.org/blog/layouts-rfc) previously published for community feedback. This includes support for:
+[muoto.vercel.app](https://muoto.vercel.app)
 
--   **Layouts:** Easily share UI while preserving state and avoiding re-renders.
--   **Server Components:** Making server-first the default for the most dynamic applications.
--   **Streaming:** Display instant loading states and stream in updates.
--   **Suspense for Data Fetching:** `async`/`await` support and the `use` hook for component-level fetching.
+Who hasn't felt uncomfortable with their appearance?
 
-The `app/` directory can coexist with the existing `pages` directory for incremental adoption. While you **don't need to use the `app/` directory** when upgrading to Next.js 13, we're laying the foundations to build complex interfaces while shipping less JavaScript.
+Body dysmorphia is a common hidden disorder that many people are ashamed to bring up. It's recognised on two percentages of the population and it's most common among young adults.
 
-## Running Locally
+## muoto as the solution
 
-1. Install dependencies: `yarn`
-1. Start the dev server: `yarn dev`
+muoto helps you gradually work on you self-image through AI powered progress tracking. It will help you take the first steps into improving your perception of yourself and you'll get encouraged by the anynomous community
 
-## Documentation
+## Tech stack
 
-https://beta.nextjs.org/docs
-
-## Leave Feedback
-
-https://github.com/vercel/next.js/discussions/41745
+- Typescript, React 18, Next.js 13 for the application
+- Stable diffusion, FastAPI for generating images
+- Tailwind for styling
+- PostgreSQL
+- Vercel, Aiven and GCP for runtime
