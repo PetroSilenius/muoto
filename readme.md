@@ -17,3 +17,6 @@ muoto helps you gradually work on you self-image through AI powered progress tra
 - Tailwind for styling
 - PostgreSQL
 - Vercel, Aiven and GCP for runtime
+- FigmJam for ideation
+
+In [the FigJam board](https://www.figma.com/file/H66nDqEaomLcOmUuFqia8R/Junction---muoto?node-id=0%3A1) we created user flows, SWOW comparison about challenges etc
