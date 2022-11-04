@@ -9,28 +9,19 @@ const CategoryNav = ({ categories }: { categories: Category[] }) => {
 
   return (
     <div className="flex items-center space-x-4">
-      <TabNavItem href="/route-groups" isActive={!selectedLayoutSegments}>
+      <TabNavItem href="/example/layouts" isActive={!selectedLayoutSegments}>
         Home
       </TabNavItem>
 
       {categories.map((item) => (
         <TabNavItem
           key={item.slug}
-          href={`/route-groups/${item.slug}`}
+          href={`/example/layouts/${item.slug}`}
           isActive={item.slug === selectedLayoutSegments}
         >
           {item.name}
         </TabNavItem>
       ))}
-
-      <TabNavItem href="/route-groups/checkout">Checkout</TabNavItem>
-
-      <TabNavItem
-        href="/route-groups/blog"
-        isActive={'blog' === selectedLayoutSegments}
-      >
-        Blog
-      </TabNavItem>
     </div>
   );
 };

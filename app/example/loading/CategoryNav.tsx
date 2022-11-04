@@ -9,14 +9,14 @@ const CategoryNav = ({ categories }: { categories: Category[] }) => {
 
   return (
     <div className="flex items-center space-x-4">
-      <TabNavItem href="/loading" isActive={!selectedLayoutSegments}>
+      <TabNavItem href="/example/loading" isActive={!selectedLayoutSegments}>
         Home
       </TabNavItem>
 
       {categories.map((item) => (
         <TabNavItem
           key={item.slug}
-          href={`/loading/${item.slug}`}
+          href={`/example/loading/${item.slug}`}
           isActive={item.slug === selectedLayoutSegments}
         >
           {item.name}

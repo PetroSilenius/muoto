@@ -10,7 +10,7 @@ const SubCategoryNav = ({ category }: { category: Category }) => {
   return (
     <div className="flex items-center space-x-4">
       <TabNavItem
-        href={`/layouts/${category.slug}`}
+        href={`/example/layouts/${category.slug}`}
         isActive={!selectedLayoutSegments}
       >
         All
@@ -19,7 +19,7 @@ const SubCategoryNav = ({ category }: { category: Category }) => {
       {category.items.map((item) => (
         <TabNavItem
           key={item.slug}
-          href={`/layouts/${category.slug}/${item.slug}`}
+          href={`/example/layouts/${category.slug}/${item.slug}`}
           isActive={item.slug === selectedLayoutSegments}
         >
           {item.name}

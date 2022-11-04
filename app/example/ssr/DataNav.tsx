@@ -8,14 +8,14 @@ const DataNav = ({ ids }: { ids: { id: string }[] }) => {
 
   return (
     <div className="flex items-center space-x-4">
-      <TabNavItem href="/ssr" isActive={!selectedLayoutSegments}>
+      <TabNavItem href="/example/ssr" isActive={!selectedLayoutSegments}>
         Home
       </TabNavItem>
 
       {ids.map(({ id }) => (
         <TabNavItem
           key={id}
-          href={`/ssr/${id}`}
+          href={`/example/ssr/${id}`}
           isActive={id === selectedLayoutSegments}
         >
           Post #{id}
