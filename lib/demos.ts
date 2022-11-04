@@ -72,32 +72,4 @@ export const demos: Item[] = [
       },
     ],
   },
-  {
-    name: 'Components',
-    items: [
-      // TODO: Re-add this page once hooks have been updated.
-      // {
-      //   name: 'Hooks',
-      //   slug: 'hooks',
-      //   description:
-      //     'Preview the hooks available for Client and Server Components',
-      // },
-      {
-        name: 'Client Context',
-        slug: 'context',
-        description:
-          'Pass context between Client Components that cross Server/Client Component boundary',
-      },
-    ],
-  },
-  {
-    name: 'Styling',
-    items: [
-      {
-        name: 'CSS and CSS-in-JS',
-        slug: 'styling',
-        description: 'Preview the supported styling solutions',
-      },
-    ],
-  },
 ];
