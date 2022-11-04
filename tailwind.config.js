@@ -7,32 +7,32 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // https://vercel.com/design/color
+      // https://coolors.co/6ccff6-f28123-001427-faf4d3-e94f37
       colors: {
-        vercel: {
-          pink: '#FF0080',
-          blue: '#0070F3',
-          cyan: '#50E3C2',
-          orange: '#F5A623',
-          violet: '#7928CA',
+        muoto: {
+          blue: '#6CCFF6',
+          orange: '#F28123',
+          red: '#E94F37',
+          dark: '#001427',
+          light: '#001427',
         },
       },
       keyframes: ({ theme }) => ({
         rerender: {
           '0%': {
-            ['border-color']: theme('colors.vercel.pink'),
+            ['border-color']: theme('colors.muoto.orange'),
           },
           '40%': {
-            ['border-color']: theme('colors.vercel.pink'),
+            ['border-color']: theme('colors.muoto.orange'),
           },
         },
         highlight: {
           '0%': {
-            background: theme('colors.vercel.pink'),
+            background: theme('colors.muoto.orange'),
             color: theme('colors.white'),
           },
           '40%': {
-            background: theme('colors.vercel.pink'),
+            background: theme('colors.muoto.orange'),
             color: theme('colors.white'),
           },
         },
