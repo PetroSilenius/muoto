@@ -16,7 +16,7 @@ export const ProductDeal = ({
 
   return (
     <div className="flex space-x-1.5">
-      <div className="text-lg font-bold leading-snug text-vercel-pink">
+      <div className="text-lg font-bold leading-snug text-muoto-orange">
         -{percent}%
       </div>
       <div className="flex">

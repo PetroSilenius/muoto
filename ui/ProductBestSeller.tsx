@@ -1,6 +1,6 @@
 export const ProductBestSeller = () => {
   return (
-    <div className="rounded bg-vercel-pink px-1 text-xs text-pink-100">
+    <div className="rounded bg-muoto-orange px-1 text-xs text-orange-100">
       Best Seller
     </div>
   );

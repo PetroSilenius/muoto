@@ -31,7 +31,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 type="search"
                 name="search"
                 id="search"
-                className="block w-full rounded-full border-none bg-zinc-600 pl-10 font-medium text-zinc-200 focus:border-vercel-pink focus:ring-2 focus:ring-vercel-pink"
+                className="block w-full rounded-full border-none bg-zinc-600 pl-10 font-medium text-zinc-200 focus:border-muoto-orange focus:ring-2 focus:ring-muoto-orange"
                 autoComplete="off"
               />
             </div>
@@ -40,7 +40,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex space-x-3">
             <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-zinc-600 text-white">
               <ShoppingCartIcon className="w-6 text-white" />
-              <div className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-vercel-pink text-sm font-bold text-white">
+              <div className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-muoto-orange text-sm font-bold text-white">
                 <CartCount />
               </div>
             </div>

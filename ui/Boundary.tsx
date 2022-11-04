@@ -8,17 +8,23 @@ const Label = ({
 }: {
   children: React.ReactNode;
   animateRerendering?: boolean;
-  color?: 'default' | 'pink' | 'blue' | 'violet' | 'cyan' | 'orange';
+  color?:
+    | 'default'
+    | 'orange'
+    | 'blue'
+    | 'lightgoldenrodyellow'
+    | 'red'
+    | 'darkblue';
 }) => {
   return (
     <div
       className={clsx('rounded-full px-1.5 shadow-[0_0_1px_4px_black]', {
         'bg-zinc-800 text-zinc-500': color === 'default',
-        'bg-vercel-pink text-pink-100': color === 'pink',
-        'bg-vercel-blue text-blue-100': color === 'blue',
-        'bg-vercel-cyan text-cyan-100': color === 'cyan',
-        'bg-vercel-violet text-violet-100': color === 'violet',
-        'bg-vercel-orange text-orange-100': color === 'orange',
+        'bg-muoto-orange text-orange-100': color === 'orange',
+        'bg-muoto-blue text-blue-100': color === 'blue',
+        'bg-muoto-red text-red-100': color === 'red',
+        'text-light-100 bg-muoto-light': color === 'lightgoldenrodyellow',
+        'bg-muoto-dark text-orange-100': color === 'darkblue',
         'animate-[highlight_1s_ease-in-out_1]': animateRerendering,
       })}
     >
@@ -36,7 +42,13 @@ export const Boundary = ({
   children: React.ReactNode;
   labels?: string[];
   size?: 'small' | 'default';
-  color?: 'default' | 'pink' | 'blue' | 'violet' | 'cyan' | 'orange';
+  color?:
+    | 'default'
+    | 'orange'
+    | 'blue'
+    | 'lightgoldenrodyellow'
+    | 'red'
+    | 'darkblue';
   animateRerendering?: boolean;
 }) => {
   return (
@@ -45,12 +57,12 @@ export const Boundary = ({
         'p-5': size === 'small',
         'p-9': size === 'default',
         'border-zinc-700': color === 'default',
-        'border-vercel-pink': color === 'pink',
-        'border-vercel-blue': color === 'blue',
-        'border-vercel-cyan': color === 'cyan',
-        'border-vercel-violet': color === 'violet',
-        'border-vercel-orange': color === 'orange',
-        'animate-[rerender_1s_ease-in-out_1] text-vercel-pink':
+        'border-muoto-orange': color === 'orange',
+        'border-muoto-blue': color === 'blue',
+        'border-muoto-red': color === 'red',
+        'border-muoto-light': color === 'lightgoldenrodyellow',
+        'border-muoto-dark': color === 'darkblue',
+        'animate-[rerender_1s_ease-in-out_1] text-muoto-orange':
           animateRerendering,
       })}
     >

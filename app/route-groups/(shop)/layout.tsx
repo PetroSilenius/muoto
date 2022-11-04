@@ -11,7 +11,7 @@ export default async function Layout({
 }) {
   const categories = await fetchCategories();
   return (
-    <Boundary labels={['shop layout']} color="cyan" animateRerendering={false}>
+    <Boundary labels={['shop layout']} color="red" animateRerendering={false}>
       <div className="space-y-9">
         <div className="flex items-center justify-between">
           <CategoryNav categories={categories} />
