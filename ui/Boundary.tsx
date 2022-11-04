@@ -8,13 +8,7 @@ const Label = ({
 }: {
   children: React.ReactNode;
   animateRerendering?: boolean;
-  color?:
-    | 'default'
-    | 'orange'
-    | 'blue'
-    | 'lightgoldenrodyellow'
-    | 'red'
-    | 'darkblue';
+  color?: 'default' | 'orange' | 'blue' | 'light' | 'red' | 'dark';
 }) => {
   return (
     <div
@@ -23,8 +17,8 @@ const Label = ({
         'bg-muoto-orange text-orange-100': color === 'orange',
         'bg-muoto-blue text-blue-100': color === 'blue',
         'bg-muoto-red text-red-100': color === 'red',
-        'text-light-100 bg-muoto-light': color === 'lightgoldenrodyellow',
-        'bg-muoto-dark text-orange-100': color === 'darkblue',
+        'text-light-100 bg-muoto-light': color === 'light',
+        'bg-muoto-dark text-orange-100': color === 'dark',
         'animate-[highlight_1s_ease-in-out_1]': animateRerendering,
       })}
     >
@@ -42,13 +36,7 @@ export const Boundary = ({
   children: React.ReactNode;
   labels?: string[];
   size?: 'small' | 'default';
-  color?:
-    | 'default'
-    | 'orange'
-    | 'blue'
-    | 'lightgoldenrodyellow'
-    | 'red'
-    | 'darkblue';
+  color?: 'default' | 'orange' | 'blue' | 'light' | 'red' | 'dark';
   animateRerendering?: boolean;
 }) => {
   return (
@@ -60,8 +48,8 @@ export const Boundary = ({
         'border-muoto-orange': color === 'orange',
         'border-muoto-blue': color === 'blue',
         'border-muoto-red': color === 'red',
-        'border-muoto-light': color === 'lightgoldenrodyellow',
-        'border-muoto-dark': color === 'darkblue',
+        'border-muoto-light': color === 'light',
+        'border-muoto-dark': color === 'dark',
         'animate-[rerender_1s_ease-in-out_1] text-muoto-orange':
           animateRerendering,
       })}
