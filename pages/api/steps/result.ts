@@ -2,7 +2,6 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const body = req.body;
-  console.log({ body });
 
   // Properly validate the data
   if (!body) {
