@@ -1,7 +1,7 @@
 export default function Tag({
   option,
 }: {
-  option: { id: number; content: string };
+  option: { id: string; content: string };
 }) {
   return (
     <>

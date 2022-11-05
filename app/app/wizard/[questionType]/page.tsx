@@ -4,15 +4,14 @@ import { PrismaClient, questionType } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function fetchData(params: { questionType: questionType }) {
-  const question = await prisma.questions.findFirst({
+  const question = await prisma.questions.findFirstOrThrow({
     where: {
       type: params.questionType,
     },
     include: {
-      options: true
-    }
+      options: true,
+    },
   });
-  console.log(params.questionType, question);
 
   return question;
 }
@@ -32,7 +31,7 @@ export default async function Page({
           {data.content}
         </h1>
         <p className="font-medium text-zinc-500">{data.description}</p>
-        <div className="flex flex-row gap-4 ">
+        <div className="flex flex-row flex-wrap gap-4 ">
           <input type="hidden" name="questionId" value={data.id} />
           {data.options.map((option) => {
             return (
