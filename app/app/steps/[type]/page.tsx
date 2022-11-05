@@ -26,8 +26,8 @@ export default async function Page({
   const data = await fetchData(params);
 
   return (
-    <form method="POST" action={`/api/wizard/${data.type}`}>
-      <div className="space-y-4">
+    <form method="POST" action={`/api/steps/${data.type}`}>
+      <div className="space-y-4 px-4">
         <h1 className="text-shadow text-4xl font-medium text-muoto-orange">
           {data.content}
         </h1>
@@ -44,9 +44,10 @@ export default async function Page({
         </div>
         <button
           type="submit"
-          className="float-right my-4 rounded bg-muoto-orange py-2 px-4 font-bold"
+          className="float-right my-16 rounded bg-muoto-orange py-2 px-4 font-bold"
+          aria-label="Next"
         >
-          Submit
+          →
         </button>
       </div>
     </form>

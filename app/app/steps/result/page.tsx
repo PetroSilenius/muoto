@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default async function Page() {
   return (
-    <form method="POST" action={`/api/wizard/result`}>
+    <form method="POST" action={`/api/steps/result`}>
       <div className="space-y-4">
         <h1 className="text-shadow text-4xl font-medium text-muoto-orange">
           Does this image portray you?
