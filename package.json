@@ -7,7 +7,8 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{js,ts,tsx,md}\"",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "postinstall": "prisma migrate deploy"
   },
   "prettier": {
     "arrowParens": "always",
