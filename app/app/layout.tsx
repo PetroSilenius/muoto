@@ -9,7 +9,7 @@ export default async function Layout({
 }) {
   const session = await getSession(headers().get('cookie'));
   if (!session) {
-    redirect('/api/auth/signin');
+    redirect('/login');
   }
 
   return children;
