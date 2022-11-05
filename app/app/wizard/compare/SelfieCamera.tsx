@@ -1,19 +1,39 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRouter } from 'next/navigation';
+import { useEffect, useRef } from 'react';
 
 export default function SelfieCamera() {
   const videoRef = useRef<null | HTMLVideoElement>(null);
+  const router = useRouter();
 
-  navigator.mediaDevices
-    .getUserMedia({ video: { width: 300, facingMode: 'user' } })
-    .then((stream) => {
-      let video = videoRef.current;
-      if (video) {
-        video.srcObject = stream;
-        video.play();
+  if (typeof navigator !== 'undefined') {
+    navigator.mediaDevices
+      .getUserMedia({ video: { width: 300, facingMode: 'user' } })
+      .then((stream) => {
+        let video = videoRef.current;
+        if (video) {
+          video.srcObject = stream;
+          video.play();
+        }
+      });
+  }
+
+  useEffect(() => {
+    const video = videoRef.current;
+    const redirectAfter = setTimeout(() => {
+      router.push('/app/dashboard');
+    }, 5000);
+
+    return () => {
+      clearTimeout(redirectAfter);
+      if (video && video.srcObject && 'getTracks' in video.srcObject) {
+        video.srcObject?.getTracks().forEach((track) => {
+          track.stop();
+        });
       }
-    });
+    };
+  }, [router]);
 
   return (
     <video
