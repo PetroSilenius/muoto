@@ -6,10 +6,12 @@ export default async function Layout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getSession();
+  /* const session = await getSession();
   if (!session) {
     redirect('/login');
   }
+
+   */
 
   return children;
 }
