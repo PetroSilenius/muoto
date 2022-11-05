@@ -3,10 +3,12 @@ import { PrismaClient, questionType } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-async function fetchData(params: { questionType: questionType }) {
+async function fetchData(params: { type: questionType }) {
+  const questionType = params.type;
+
   const question = await prisma.questions.findFirstOrThrow({
     where: {
-      type: params.questionType,
+      type: questionType,
     },
     include: {
       options: true,
@@ -19,13 +21,13 @@ async function fetchData(params: { questionType: questionType }) {
 export default async function Page({
   params,
 }: {
-  params: { questionType: questionType };
+  params: { type: questionType };
   children?: React.ReactNode;
 }) {
   const data = await fetchData(params);
 
   return (
-    <form method="POST" action={`/api/wizard/${params.questionType}`}>
+    <form method="POST" action={`/api/wizard/${data.type}`}>
       <div className="space-y-4">
         <h1 className="text-shadow text-4xl font-medium text-muoto-orange">
           {data.content}
