@@ -1,6 +1,8 @@
-import client from 'lib/prismadb';
 import questions from './seeders/questions';
 import options from './seeders/options';
+import { PrismaClient } from '@prisma/client';
+
+const client = new PrismaClient();
 
 async function main() {
   await questions(client);
