@@ -15,5 +15,5 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     redirectUrl = '/app/wizard/compare';
   }
 
-  res.redirect(307, redirectUrl);
+  res.redirect(303, redirectUrl);
 }
