@@ -8,17 +8,13 @@ async function fetchData(params: { questionType: questionType }) {
     where: {
       type: params.questionType,
     },
+    include: {
+      options: true
+    }
   });
   console.log(params.questionType, question);
 
-  return {
-    ...question,
-    options: [
-      { id: 1, value: 'Arms' },
-      { id: 2, value: 'Nose' },
-      { id: 3, value: 'Eyebrows' },
-    ],
-  };
+  return question;
 }
 
 export default async function Page({

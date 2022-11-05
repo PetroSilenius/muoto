@@ -1,7 +1,7 @@
 export default function Tag({
   option,
 }: {
-  option: { id: number; value: string };
+  option: { id: number; content: string };
 }) {
   return (
     <>
@@ -15,7 +15,7 @@ export default function Tag({
         htmlFor={`answer-${option.id}`}
         className="cursor-pointer rounded bg-muoto-light py-2 px-4 font-medium text-muoto-dark transition-colors peer-checked:bg-muoto-dark peer-checked:text-muoto-light"
       >
-        {option.value}
+        {option.content}
       </label>
     </>
   );
