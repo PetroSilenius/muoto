@@ -1,8 +1,8 @@
 import { Session } from 'next-auth';
+import { headers } from 'next/headers';
 
-export async function getSession(
-  cookie: string | null,
-): Promise<Session | null> {
+export async function getSession(): Promise<Session | null> {
+  const cookie = headers().get('cookie');
   if (!cookie) {
     return null;
   }

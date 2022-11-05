@@ -1,5 +1,4 @@
 import { getSession } from '@/lib/session';
-import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 
 export default async function Layout({
@@ -7,7 +6,7 @@ export default async function Layout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getSession(headers().get('cookie'));
+  const session = await getSession();
   if (!session) {
     redirect('/login');
   }

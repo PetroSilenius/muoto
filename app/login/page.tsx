@@ -1,10 +1,9 @@
 // import { getSession } from '@/lib/session';
-// import { headers } from 'next/headers';
 import LogInButton from './LogInButton';
 // import { redirect } from 'next/navigation';
 
 export default async function Page() {
-  // const session = await getSession(headers().get('cookie'));
+  // const session = await getSession();
   // if (session) {
   //   redirect('/app/dashboard');
   // }
