@@ -110,7 +110,7 @@ model VerificationToken {
 }
 
 enum questionType {
-  activity
+  feeling
   positive_trait
   negative_trait
 }
