@@ -1,10 +1,8 @@
 import Tag from 'app/app/steps/Tag';
-import { PrismaClient, questionType } from '@prisma/client';
-// import client from 'lib/prismadb';
+// import { PrismaClient, questionType } from '@prisma/client';
+import client from 'lib/prismadb';
 
-const client = new PrismaClient();
-
-async function fetchData(params: { type: questionType }) {
+async function fetchData(params: { type: any }) {
   const questionType = params.type;
 
   return await client.questions.findFirstOrThrow({
@@ -20,7 +18,7 @@ async function fetchData(params: { type: questionType }) {
 export default async function Page({
   params,
 }: {
-  params: { type: questionType };
+  params: { type: any };
   children?: React.ReactNode;
 }) {
   const data = await fetchData(params);
@@ -34,8 +32,8 @@ export default async function Page({
         <p className="font-medium text-zinc-500">{data.description}</p>
         <div className="flex flex-row flex-wrap gap-4 ">
           <input type="hidden" name="questionId" value={data.id} />
-          {data.options.map((option) => (
-            <div key={option.id}>
+          {data?.options?.map((option) => (
+            <div key={option?.id}>
               <Tag option={option} />
             </div>
           ))}
