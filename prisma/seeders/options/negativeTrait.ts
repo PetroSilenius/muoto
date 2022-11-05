@@ -78,7 +78,7 @@ export default async function negativeTrait(prisma: PrismaClient) {
     create: {
       id: '9811a596-8f77-4dde-a474-bce381c83957',
       question_id: NEGATIVE_TRAIT_UUID,
-      content: 'Form',
+      content: 'Acne',
     },
   });
 

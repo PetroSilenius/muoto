@@ -58,7 +58,7 @@ export default async function positiveTrait(prisma: PrismaClient) {
     create: {
       id: 'ca872ded-431a-4f6c-84ec-fd16eaec57e3',
       question_id: POSITIVE_TRAIT_UUID,
-      content: 'Acne',
+      content: 'Form',
     },
   });
 
