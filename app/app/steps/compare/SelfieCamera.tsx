@@ -18,7 +18,7 @@ export default function SelfieCamera() {
         }
       });
   }
-  /*
+
   useEffect(() => {
     const video = videoRef.current;
     const redirectAfter = setTimeout(() => {
@@ -34,7 +34,7 @@ export default function SelfieCamera() {
       }
     };
   }, [router]);
-*/
+
   return (
     <video
       ref={videoRef}
