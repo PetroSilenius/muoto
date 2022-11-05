@@ -5,7 +5,7 @@
 
 */
 -- CreateEnum
-CREATE TYPE "questionType" AS ENUM ('ACTIVITY', 'POSITIVE_TRAIT', 'NEGATIVE_TRAIT');
+CREATE TYPE "questionType" AS ENUM ('activity', 'positive_trait', 'negative_trait');
 
 -- AlterTable
 ALTER TABLE "questions" ADD COLUMN     "type" "questionType" NOT NULL;

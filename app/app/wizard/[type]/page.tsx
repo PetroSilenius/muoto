@@ -2,40 +2,37 @@ import Tag from 'app/app/wizard/Tag';
 import { questionType } from '@prisma/client';
 import client from 'lib/prismadb';
 
-async function fetchData(params: { questionType: questionType }) {
-  const question = await client.questions.findFirst({
+async function fetchData(params: { type: questionType }) {
+  const questionType = params.type;
+
+  const question = await client.questions.findFirstOrThrow({
     where: {
-      type: params.questionType,
+      type: questionType,
+    },
+    include: {
+      options: true,
     },
   });
-  console.log(params.questionType, question);
 
-  return {
-    ...question,
-    options: [
-      { id: 1, value: 'Arms' },
-      { id: 2, value: 'Nose' },
-      { id: 3, value: 'Eyebrows' },
-    ],
-  };
+  return question;
 }
 
 export default async function Page({
   params,
 }: {
-  params: { questionType: questionType };
+  params: { type: questionType };
   children?: React.ReactNode;
 }) {
   const data = await fetchData(params);
 
   return (
-    <form method="POST" action={`/api/wizard/${params.questionType}`}>
+    <form method="POST" action={`/api/wizard/${data.type}`}>
       <div className="space-y-4">
         <h1 className="text-shadow text-4xl font-medium text-muoto-orange">
           {data.content}
         </h1>
         <p className="font-medium text-zinc-500">{data.description}</p>
-        <div className="flex flex-row gap-4 ">
+        <div className="flex flex-row flex-wrap gap-4 ">
           <input type="hidden" name="questionId" value={data.id} />
           {data.options.map((option) => {
             return (

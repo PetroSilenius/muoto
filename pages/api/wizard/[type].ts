@@ -2,14 +2,14 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import client from 'lib/prismadb';
 
 enum QuestionTypeOrder {
-  ACTIVITY = 1,
-  POSITIVE_TRAIT = 2,
-  NEGATIVE_TRAIT = 3,
-  result = 4,
+  activity,
+  positive_trait,
+  negative_trait,
+  result,
 }
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  const questionType = req.query.questionType;
+  const questionType = req.query.type;
   const body = req.body;
 
   // Properly validate the data
