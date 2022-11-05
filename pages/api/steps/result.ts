@@ -9,7 +9,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     return res.status(400).json({ data: 'Missing body' });
   }
 
-  let redirectUrl = '/app/steps/activity';
+  let redirectUrl = '/app/steps/feeling';
   if (body.confirm === 'Yes') {
     // Write to database
     redirectUrl = '/app/steps/compare';
