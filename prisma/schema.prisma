@@ -64,7 +64,7 @@ model users {
 }
 
 enum questionType {
-  ACTIVITY
-  POSITIVE_TRAIT
-  NEGATIVE_TRAIT
+  activity
+  positive_trait
+  negative_trait
 }
