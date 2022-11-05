@@ -1,9 +1,9 @@
-export default function Page() {
+import LogInButton from './LogInButton';
+
+export default async function Page() {
   return (
-    <div className="space-y-6">
-      <div className="space-y-8 text-white">
-        <h1>Login</h1>
-      </div>
+    <div className="flex flex-col items-center space-y-8 text-center text-white">
+      <LogInButton />
     </div>
   );
 }
