@@ -1,15 +1,14 @@
 import Tag from 'app/app/steps/Tag';
 import { PrismaClient } from '@prisma/client';
+import { QuestionTypeOrder } from 'pages/api/steps/[type]';
 // import client from 'lib/prismadb';
-import { use } from 'react';
 
-async function fetchData(params: { type: any }) {
+async function fetchData(type: any) {
   const client = new PrismaClient();
-  const questionType = params.type;
 
   const question = await client.questions.findFirstOrThrow({
     where: {
-      type: questionType,
+      type,
     },
     include: {
       options: true,
@@ -25,7 +24,7 @@ export default async function Page({
   params: { type: any };
   children?: React.ReactNode;
 }) {
-  const data = use(fetchData(params));
+  const data = await fetchData(params.type);
 
   return (
     <form method="POST" action={`/api/steps/${data.type}`}>
@@ -52,4 +51,15 @@ export default async function Page({
       </div>
     </form>
   );
+}
+
+export async function generateStaticParams() {
+  const questionTypes = [
+    QuestionTypeOrder.feeling,
+    QuestionTypeOrder.positive_trait,
+    QuestionTypeOrder.negative_trait,
+  ];
+  return Object.keys(questionTypes).map((type) => ({
+    type,
+  }));
 }

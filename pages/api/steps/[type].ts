@@ -3,7 +3,7 @@ import client from 'lib/prismadb';
 import { unstable_getServerSession } from 'next-auth/next';
 import { authOptions } from 'pages/api/auth/[...nextauth]';
 
-enum QuestionTypeOrder {
+export enum QuestionTypeOrder {
   feeling,
   positive_trait,
   negative_trait,
