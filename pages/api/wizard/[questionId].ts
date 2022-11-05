@@ -14,5 +14,5 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 
   // Write to database
-  res.redirect(307, `/app/wizard/${parseInt(questionId) + 1}`);
+  res.redirect(302, `/app/wizard/${parseInt(questionId) + 1}`);
 }
