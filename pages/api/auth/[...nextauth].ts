@@ -18,6 +18,9 @@ export const authOptions = {
       return session;
     },
   },
+  pages: {
+    signIn: '/login',
+  },
   debug: true,
   secret: process.env.SECRET,
 };
