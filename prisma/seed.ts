@@ -1,18 +1,19 @@
+import questions from './seeders/questions';
+import options from './seeders/options';
 import { PrismaClient } from '@prisma/client';
-import questions from "./seeders/questions";
-import options from "./seeders/options";
 
-const prisma = new PrismaClient();
+const client = new PrismaClient();
+
 async function main() {
-  await questions(prisma);
-  await options(prisma);
+  await questions(client);
+  await options(client);
 }
 main()
   .then(async () => {
-    await prisma.$disconnect();
+    await client.$disconnect();
   })
   .catch(async (e) => {
     console.error(e);
-    await prisma.$disconnect();
+    await client.$disconnect();
     process.exit(1);
   });
