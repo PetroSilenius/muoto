@@ -1,8 +1,9 @@
 import Tag from 'app/app/steps/Tag';
-// import { PrismaClient, questionType } from '@prisma/client';
-import client from 'lib/prismadb';
+import { PrismaClient, questionType } from '@prisma/client';
+// import client from 'lib/prismadb';
 
-async function fetchData(params: { type: any }) {
+async function fetchData(params: { type: questionType }) {
+  const client = new PrismaClient();
   const questionType = params.type;
 
   return await client.questions.findFirstOrThrow({
@@ -18,7 +19,7 @@ async function fetchData(params: { type: any }) {
 export default async function Page({
   params,
 }: {
-  params: { type: any };
+  params: { type: questionType };
   children?: React.ReactNode;
 }) {
   const data = await fetchData(params);
