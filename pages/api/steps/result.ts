@@ -10,7 +10,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 
   let redirectUrl = '/app/steps/activity';
-  if (body.confirm) {
+  if (body.confirm === 'Yes') {
     // Write to database
     redirectUrl = '/app/steps/compare';
   }
