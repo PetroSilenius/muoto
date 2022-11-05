@@ -7,10 +7,18 @@ const DEEP_AI_URL = process.env.DEEP_AI_URL!;
 // Form submission boundary
 const BOUNDARY_IDENTIFIER = '----WebKitFormBoundarysGXdDewMvkTTul70';
 
-export default async function generateImage(): Promise<{
+const EMOJI_TO_KEY_WORD_MAP = {
+  '🥳': 'Excited',
+  '😊': 'Happy',
+  '🥱': 'Tired',
+  '😕': 'Sad',
+  '😖': 'Disgusted',
+};
+
+export default async function generateImage(image_id?: string): Promise<{
   id: string;
   output_url: string;
-  text: string;
+  text?: string;
 }> {
   // const session = await getSession();
   // if (!session) {
@@ -19,6 +27,22 @@ export default async function generateImage(): Promise<{
 
   const user = await client.user.findFirst();
 
+  if (!image_id) {
+    return triggerStableDiffusion(user);
+  }
+
+  const image = await client.images.findFirstOrThrow({
+    where: { user_id: user.id },
+    orderBy: { created_at: 'asc' },
+  });
+
+  return {
+    id: image.id,
+    output_url: image.url,
+  };
+}
+
+async function triggerStableDiffusion(user: any) {
   const answerer = await client.answers.findMany({
     where: { user_id: user?.id },
   });
@@ -32,12 +56,17 @@ export default async function generateImage(): Promise<{
   });
 
   const keyWords = options
-    .map(({ content }) =>
-      content
+    .map(({ content }) => {
+      if (Object.keys(EMOJI_TO_KEY_WORD_MAP).includes(content)) {
+        // @ts-ignore
+        return EMOJI_TO_KEY_WORD_MAP[content];
+      }
+
+      return content
         .split(' ')
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' '),
-    )
+        .join(' ');
+    })
     .join(' ');
   const gender = 'Woman';
   const text = `${gender} On the ground ${keyWords}`;
@@ -55,8 +84,24 @@ export default async function generateImage(): Promise<{
     method: 'POST',
   });
 
+  const { id, output_url } = await deepAIResponse.json();
+
+  const test = await fetch(`https://api.deepai.org/get_standard_api_result_data/${id}`, {
+    headers: requestHeaders
+  }).then((thing) => thing.json());
+  console.log(JSON.stringify(test)
+  )
+
+  await client.images.create({
+    data: {
+      url: output_url,
+      users: { connect: { id: user.id } },
+    },
+  });
+
   return {
-    ...(await deepAIResponse.json()),
+    id,
+    output_url,
     text,
   };
 }
