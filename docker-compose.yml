@@ -1,0 +1,19 @@
+---
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:13.6-alpine
+    restart: always
+    ports:
+      - "127.0.0.1:${DB_FORWARD_PORT:-5432}:5432"
+    volumes:
+      - "apppostgres:/var/lib/postgresql/data:cached"
+    environment:
+      POSTGRES_USER: "${DB_USERNAME}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      POSTGRES_DB: "${DB_DATABASE}"
+
+volumes:
+  apppostgres:
+    driver: local
