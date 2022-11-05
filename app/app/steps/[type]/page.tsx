@@ -54,12 +54,8 @@ export default async function Page({
 }
 
 export async function generateStaticParams() {
-  const questionTypes = [
-    QuestionTypeOrder.feeling,
-    QuestionTypeOrder.positive_trait,
-    QuestionTypeOrder.negative_trait,
-  ];
-  return Object.keys(questionTypes).map((type) => ({
-    type,
+  const questionTypes = ['feeling', 'positive_trait', 'negative_trait'];
+  return questionTypes.map((type) => ({
+    type: type,
   }));
 }

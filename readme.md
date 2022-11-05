@@ -12,11 +12,12 @@ muoto helps you gradually work on you self-image through AI powered progress tra
 
 ## Tech stack
 
-- Typescript, React 18, Next.js 13 for the application
-- Stable diffusion, FastAPI for generating images
+- Typescript, React 18 with server components, Next.js 13 with `app` directory
+- Stable diffusion for generating images
 - Tailwind for styling
-- PostgreSQL
-- Vercel, Aiven and GCP for runtime
+- PostgreSQL running in Aiven
+- Vercel running static + serverless
+- Next-auth with Google OAuth provider
 - FigmJam for ideation
 
 In [the FigJam board](https://www.figma.com/file/H66nDqEaomLcOmUuFqia8R/Junction---muoto?node-id=0%3A1) we created user flows, SWOW comparison about challenges etc
