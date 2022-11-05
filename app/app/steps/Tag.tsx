@@ -7,7 +7,7 @@ export default function Tag({
     <>
       <input
         type="checkbox"
-        name={`answer-${option.id}`}
+        name={option.id}
         id={`answer-${option.id}`}
         className="peer hidden"
       />
