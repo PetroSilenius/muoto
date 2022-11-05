@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  const questionId = req.query.questionId;
+  const questionType = req.query.questionType;
   const body = req.body;
 
   const chosenOptions = Object.keys(body);
@@ -9,10 +9,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   console.log({ chosenOptions });
 
   // Properly validate the data
-  if (!body || !questionId || questionId instanceof Array) {
+  if (!body || !questionType || questionType instanceof Array) {
     return res.status(400).json({ data: 'Missing body' });
   }
 
   // Write to database
-  res.redirect(302, `/app/wizard/${parseInt(questionId) + 1}`);
+  res.redirect(302, `/app/wizard/${questionType}`);
 }
