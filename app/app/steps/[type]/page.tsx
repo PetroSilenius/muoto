@@ -1,4 +1,4 @@
-import Tag from 'app/app/wizard/Tag';
+import Tag from 'app/app/steps/Tag';
 import { questionType } from '@prisma/client';
 import client from 'lib/prismadb';
 

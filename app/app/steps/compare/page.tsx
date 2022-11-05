@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import SelfieCamera from 'app/app/wizard/compare/SelfieCamera';
+import SelfieCamera from 'app/app/steps/compare/SelfieCamera';
 
 export default async function Page() {
   return (
