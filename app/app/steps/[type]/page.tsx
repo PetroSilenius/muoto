@@ -17,7 +17,7 @@ async function fetchData(params: { type: questionType }) {
           })
   } catch (e) {
       console.error(e)
-      return {};
+      return {type: 'Error', description: 'Error', content: 'Error', options: []};
   }
 }
 
