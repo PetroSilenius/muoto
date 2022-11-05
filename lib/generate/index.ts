@@ -1,5 +1,5 @@
 import client from '@/lib/prismadb';
-// import { getSession } from '@/lib/session';
+import { getSession } from '@/lib/session';
 
 const API_KEY = process.env.DEEP_AI_API_KEY!;
 const DEEP_AI_URL = process.env.DEEP_AI_URL!;
@@ -11,10 +11,10 @@ export default async function generateImage(): Promise<{
   output_url: string;
   text: string;
 }> {
-  // const session = await getSession();
-  // if (!session) {
-  //   throw new Error('Unauthorised action');
-  // }
+  const session = await getSession();
+  if (!session) {
+    throw new Error('Unauthorised action');
+  }
 
   const user = await client.user.findFirst();
 
