@@ -1,12 +1,13 @@
 import Tag from 'app/app/steps/Tag';
 import { PrismaClient } from '@prisma/client';
 // import client from 'lib/prismadb';
+import { use } from 'react';
 
 async function fetchData(params: { type: any }) {
   const client = new PrismaClient();
   const questionType = params.type;
 
-  return await client.questions.findFirstOrThrow({
+  const question = await client.questions.findFirstOrThrow({
     where: {
       type: questionType,
     },
@@ -14,6 +15,8 @@ async function fetchData(params: { type: any }) {
       options: true,
     },
   });
+
+  return question;
 }
 
 export default async function Page({
@@ -22,7 +25,7 @@ export default async function Page({
   params: { type: any };
   children?: React.ReactNode;
 }) {
-  const data = await fetchData(params);
+  const data = use(fetchData(params));
 
   return (
     <form method="POST" action={`/api/steps/${data.type}`}>
