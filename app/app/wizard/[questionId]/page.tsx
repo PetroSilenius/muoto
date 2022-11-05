@@ -1,3 +1,5 @@
+import Tag from 'app/app/wizard/Tag';
+
 async function fetchData(params: { questionId: string }) {
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${params.questionId}`,
@@ -34,18 +36,7 @@ export default async function Page({
           {data.options.map((option) => {
             return (
               <div key={option.id}>
-                <input
-                  type="checkbox"
-                  name={`answer-${option.id}`}
-                  id={`answer-${option.id}`}
-                  className="peer hidden"
-                />
-                <label
-                  htmlFor={`answer-${option.id}`}
-                  className="cursor-pointer rounded bg-muoto-light py-2 px-4 font-medium text-muoto-dark transition-colors peer-checked:bg-muoto-dark peer-checked:text-muoto-light"
-                >
-                  {option.value}
-                </label>
+                <Tag option={option} />
               </div>
             );
           })}
