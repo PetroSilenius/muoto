@@ -23,7 +23,7 @@ export default function SelfieCamera() {
     const video = videoRef.current;
     const redirectAfter = setTimeout(() => {
       router.push('/app/dashboard');
-    }, 5000);
+    }, 15000);
 
     return () => {
       clearTimeout(redirectAfter);
