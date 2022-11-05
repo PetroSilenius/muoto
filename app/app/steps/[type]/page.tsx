@@ -27,7 +27,7 @@ export default async function Page({
   params: { type: questionType };
   children?: React.ReactNode;
 }) {
-  const data = await fetchData(params);
+  const data = {id: 'Error', type: 'Error', description: 'Error', content: 'Error', options: []};
 
   return (
     <form method="POST" action={`/api/steps/${data?.type}`}>
@@ -38,7 +38,7 @@ export default async function Page({
         <p className="font-medium text-zinc-500">{data?.description}</p>
         <div className="flex flex-row flex-wrap gap-4 ">
           <input type="hidden" name="questionId" value={data?.id} />
-          {data?.options.map((option) => (
+          {data?.options.map((option: any) => (
             <div key={option.id}>
               <Tag option={option} />
             </div>
