@@ -1,8 +1,7 @@
-import { PrismaClient } from '@prisma/client';
+import client from 'lib/prismadb';
 
-const prisma = new PrismaClient();
 async function main() {
-  await prisma.questions.upsert({
+  await client.questions.upsert({
     where: { id: '0752a1c0-d2ec-4f43-bd77-3324c91e59bd' },
     update: {},
     create: {
@@ -12,7 +11,7 @@ async function main() {
       description: 'Describe how active you are feeling today',
     },
   });
-  await prisma.questions.upsert({
+  await client.questions.upsert({
     where: { id: 'bca9aab2-9d7b-4d2d-bac5-1313920e84c3' },
     update: {},
     create: {
@@ -22,7 +21,7 @@ async function main() {
       description: 'Be proud of yourself!',
     },
   });
-  await prisma.questions.upsert({
+  await client.questions.upsert({
     where: { id: 'd2118da2-714b-47a0-87d1-49c6cf95c388' },
     update: {},
     create: {
@@ -36,10 +35,10 @@ async function main() {
 }
 main()
   .then(async () => {
-    await prisma.$disconnect();
+    await client.$disconnect();
   })
   .catch(async (e) => {
     console.error(e);
-    await prisma.$disconnect();
+    await client.$disconnect();
     process.exit(1);
   });
