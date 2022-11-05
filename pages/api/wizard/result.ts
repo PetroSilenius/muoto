@@ -9,10 +9,11 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     return res.status(400).json({ data: 'Missing body' });
   }
 
+  let redirectUrl = '/app/wizard/1';
   if (body.confirm) {
     // Write to database
-    return res.redirect(307, `/app/wizard/compare`);
+    redirectUrl = '/app/wizard/compare';
   }
 
-  res.redirect(307, `/app/wizard/1`);
+  res.redirect(307, redirectUrl);
 }
