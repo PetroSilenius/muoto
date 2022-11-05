@@ -1,8 +1,8 @@
 import Tag from 'app/app/steps/Tag';
-import { PrismaClient, questionType } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 // import client from 'lib/prismadb';
 
-async function fetchData(params: { type: questionType }) {
+async function fetchData(params: { type: any }) {
   const client = new PrismaClient();
   const questionType = params.type;
 
@@ -19,7 +19,7 @@ async function fetchData(params: { type: questionType }) {
 export default async function Page({
   params,
 }: {
-  params: { type: questionType };
+  params: { type: any };
   children?: React.ReactNode;
 }) {
   const data = await fetchData(params);
