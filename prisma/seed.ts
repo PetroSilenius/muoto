@@ -19,7 +19,18 @@ async function main() {
       id: 'bca9aab2-9d7b-4d2d-bac5-1313920e84c3',
       type: 'POSITIVE_TRAIT',
       content: 'Pick the things about yourself that you`re proud of',
-      description: 'You can pick more than one',
+      description: 'Be proud of yourself!',
+    },
+  });
+  await prisma.questions.upsert({
+    where: { id: 'd2118da2-714b-47a0-87d1-49c6cf95c388' },
+    update: {},
+    create: {
+      id: 'd2118da2-714b-47a0-87d1-49c6cf95c388',
+      type: 'NEGATIVE_TRAIT',
+      content: 'Select the things that you don`t like so much about you',
+      description:
+        'Don` worry, we all have things we don`t like about ourselves',
     },
   });
 }
