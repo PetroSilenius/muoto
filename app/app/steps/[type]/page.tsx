@@ -1,33 +1,39 @@
 import Tag from 'app/app/steps/Tag';
-import { questionType } from '@prisma/client';
-import client from 'lib/prismadb';
+// import { questionType } from '@prisma/client';
+// import client from 'lib/prismadb';
 
-async function fetchData(params: { type: questionType }) {
-  const questionType = params.type;
+// async function fetchData(params: { type: questionType }) {
+//   const questionType = params.type;
 
-  try {
-      return await client.questions
-          .findFirstOrThrow({
-              where: {
-                  type: questionType,
-              },
-              include: {
-                  options: true,
-              },
-          })
-  } catch (e) {
-      console.error(e)
-      return {id: 'Error', type: 'Error', description: 'Error', content: 'Error', options: []};
-  }
-}
+//   try {
+//       return await client.questions
+//           .findFirstOrThrow({
+//               where: {
+//                   type: questionType,
+//               },
+//               include: {
+//                   options: true,
+//               },
+//           })
+//   } catch (e) {
+//       console.error(e)
+//       return {id: 'Error', type: 'Error', description: 'Error', content: 'Error', options: []};
+//   }
+// }
 
 export default async function Page({
   params,
 }: {
-  params: { type: questionType };
+  params: { type: any };
   children?: React.ReactNode;
 }) {
-  const data = {id: 'Error', type: 'Error', description: 'Error', content: 'Error', options: []};
+  const data = {
+    id: 'Error',
+    type: 'Error',
+    description: 'Error',
+    content: 'Error',
+    options: [],
+  };
 
   return (
     <form method="POST" action={`/api/steps/${data?.type}`}>
