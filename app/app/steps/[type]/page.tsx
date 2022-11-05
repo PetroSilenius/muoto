@@ -5,18 +5,20 @@ import client from 'lib/prismadb';
 async function fetchData(params: { type: questionType }) {
   const questionType = params.type;
 
-  return await client.questions
-    .findFirstOrThrow({
-      where: {
-        type: questionType,
-      },
-      include: {
-        options: true,
-      },
-    })
-    .catch((e) => {
-      console.error(e);
-    });
+  try {
+      return await client.questions
+          .findFirstOrThrow({
+              where: {
+                  type: questionType,
+              },
+              include: {
+                  options: true,
+              },
+          })
+  } catch (e) {
+      console.error(e)
+      return {};
+  }
 }
 
 export default async function Page({
