@@ -1,6 +1,5 @@
 import client from '@/lib/prismadb';
 import { getSession } from '@/lib/session';
-import { headers } from 'next/headers';
 
 const API_KEY = process.env.DEEP_AI_API_KEY!;
 const DEEP_AI_URL = process.env.DEEP_AI_URL!;
@@ -12,7 +11,7 @@ export default async function generateImage(): Promise<{
   output_url: string;
   text: string;
 }> {
-  const session = await getSession(headers().get('cookie'));
+  const session = await getSession();
   if (!session) {
     throw new Error('Unauthorised action');
   }
@@ -29,10 +28,14 @@ export default async function generateImage(): Promise<{
     },
   });
 
-  const keyWords = options.map(({ content }) =>
-      content.split(' ').map((word) =>
-          word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
-  ).join(' ');
+  const keyWords = options
+    .map(({ content }) =>
+      content
+        .split(' ')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' '),
+    )
+    .join(' ');
   const gender = 'Woman';
   const text = `${gender} On the ground ${keyWords}`;
 
