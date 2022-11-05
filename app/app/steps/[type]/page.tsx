@@ -1,5 +1,5 @@
 import Tag from 'app/app/steps/Tag';
-import { questionType } from '@prisma/client';
+import type { questionType } from '@prisma/client';
 import client from 'lib/prismadb';
 
 async function fetchData(params: { type: questionType }) {
