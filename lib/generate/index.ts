@@ -29,7 +29,10 @@ export default async function generateImage(): Promise<{
     },
   });
 
-  const keyWords = options.map(({ content }) => content).join(' ');
+  const keyWords = options.map(({ content }) =>
+      content.split(' ').map((word) =>
+          word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+  ).join(' ');
   const gender = 'Woman';
   const text = `${gender} On the ground ${keyWords}`;
 
