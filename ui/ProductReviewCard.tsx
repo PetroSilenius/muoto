@@ -1,7 +1,6 @@
-import { Review } from '@/lib/data/reviews';
 import { ProductRating } from '@/ui/ProductRating';
 
-export const ProductReviewCard = ({ review }: { review: Review }) => {
+export const ProductReviewCard = ({ review }: { review: any }) => {
   return (
     <div className="space-y-4">
       <div className="space-y-2">
