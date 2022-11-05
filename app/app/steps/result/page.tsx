@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
-import StableDiffusionImage from '../../StableDiffusionImage';
-import Skeleton from '../Skeleton';
+import StableDiffusionImage from 'app/app/StableDiffusionImage';
+import Skeleton from 'app/app/steps/Skeleton';
 
 export default async function Page() {
   return (
