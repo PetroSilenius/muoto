@@ -12,8 +12,6 @@ export default async function generateImage(): Promise<{
   output_url: string;
   text: string;
 }> {
-  const cookie = headers().get('cookie');
-  console.log(cookie);
   // const session = await getSession();
   // if (!session) {
   //   throw new Error('Unauthorised action');
