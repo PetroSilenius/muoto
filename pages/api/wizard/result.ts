@@ -11,7 +11,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   if (body.confirm) {
     // Write to database
-    res.redirect(307, `/app/wizard/compare`);
+    return res.redirect(307, `/app/wizard/compare`);
   }
 
   res.redirect(307, `/app/wizard/1`);
