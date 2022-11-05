@@ -1,10 +1,9 @@
 import Tag from 'app/app/wizard/Tag';
-import { PrismaClient, questionType } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { questionType } from '@prisma/client';
+import client from 'lib/prismadb';
 
 async function fetchData(params: { questionType: questionType }) {
-  const question = await prisma.questions.findFirst({
+  const question = await client.questions.findFirst({
     where: {
       type: params.questionType,
     },

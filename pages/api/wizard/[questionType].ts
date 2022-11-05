@@ -1,7 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import client from 'lib/prismadb';
 
 enum QuestionTypeOrder {
   ACTIVITY = 1,
@@ -21,7 +19,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   const chosenOptions = Object.keys(body);
 
-  prisma.answers.create({
+  client.answers.create({
     data: {
       question_id: body.question_id,
       value: chosenOptions,
