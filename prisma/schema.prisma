@@ -31,11 +31,25 @@ model images {
 }
 
 model questions {
-  id      String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  content String
+  id           String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  content      String
   description  String?
-  type  questionType
-  answers answers[]
+  type         questionType
+  created_at   DateTime       @default(now()) @db.Timestamptz(6)
+  updated_at   DateTime       @default(now()) @db.Timestamptz(6)
+  answers      answers[]
+  options      options[]
+
+  @@index([id])
+}
+
+model options {
+  id           String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  content      String
+  question_id  String         @db.Uuid
+  created_at   DateTime       @default(now()) @db.Timestamptz(6)
+  updated_at   DateTime       @default(now()) @db.Timestamptz(6)
+  questions    questions      @relation(fields: [question_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@index([id])
 }
