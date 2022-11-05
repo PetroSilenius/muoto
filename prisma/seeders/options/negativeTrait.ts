@@ -68,7 +68,7 @@ export default async function negativeTrait(prisma: PrismaClient) {
     create: {
       id: 'a23de681-8965-4d7f-8661-b4edbf96f448',
       question_id: NEGATIVE_TRAIT_UUID,
-      content: 'Oly skin',
+      content: 'Oily skin',
     },
   });
 
@@ -78,7 +78,7 @@ export default async function negativeTrait(prisma: PrismaClient) {
     create: {
       id: '9811a596-8f77-4dde-a474-bce381c83957',
       question_id: NEGATIVE_TRAIT_UUID,
-      content: 'Your form',
+      content: 'Form',
     },
   });
 
@@ -88,7 +88,7 @@ export default async function negativeTrait(prisma: PrismaClient) {
     create: {
       id: '9f0292b0-9a91-4eb9-81f1-14aeb09f6c7e',
       question_id: NEGATIVE_TRAIT_UUID,
-      content: 'Your fitness level',
+      content: 'Fitness level',
     },
   });
 }

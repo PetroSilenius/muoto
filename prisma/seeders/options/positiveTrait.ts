@@ -28,7 +28,7 @@ export default async function positiveTrait(prisma: PrismaClient) {
     create: {
       id: '974b7d48-12b7-4203-a8ca-1e892e1f40f9',
       question_id: POSITIVE_TRAIT_UUID,
-      content: 'But size',
+      content: 'Butt size',
     },
   });
 
@@ -58,7 +58,7 @@ export default async function positiveTrait(prisma: PrismaClient) {
     create: {
       id: 'ca872ded-431a-4f6c-84ec-fd16eaec57e3',
       question_id: POSITIVE_TRAIT_UUID,
-      content: 'Face structure',
+      content: 'Acne',
     },
   });
 
