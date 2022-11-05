@@ -23,17 +23,19 @@ export default async function handler(
   }
 
   const session = await unstable_getServerSession(req, res, authOptions);
+  console.log(session)
   if (!session) {
     return res.status(401).json({ data: 'Unauthorized' });
   }
 
-  const chosenOptions = Object.keys(body);
+  const { questionId, ...options } = body;
+  const chosenOptions = Object.keys(options);
 
-  client.answers.create({
+  await client.answers.create({
     data: {
-      question_id: body.question_id,
       value: chosenOptions,
-      user_id: session.user.id,
+      questions: { connect: { id: questionId } },
+      user: { connect: { id: session.user.id } },
     },
   });
 
