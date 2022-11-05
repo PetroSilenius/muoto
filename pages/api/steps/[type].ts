@@ -23,7 +23,7 @@ export default async function handler(
   }
 
   const session = await unstable_getServerSession(req, res, authOptions);
-  console.log(session)
+  console.log(session);
   if (!session) {
     return res.status(401).json({ data: 'Unauthorized' });
   }
