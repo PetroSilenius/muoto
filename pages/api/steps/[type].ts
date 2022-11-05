@@ -4,7 +4,7 @@ import { unstable_getServerSession } from 'next-auth/next';
 import { authOptions } from 'pages/api/auth/[...nextauth]';
 
 enum QuestionTypeOrder {
-  activity,
+  feeling,
   positive_trait,
   negative_trait,
   result,
