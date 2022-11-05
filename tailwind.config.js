@@ -14,7 +14,7 @@ module.exports = {
           orange: '#F28123',
           red: '#E94F37',
           dark: '#001427',
-          light: '#001427',
+          light: '#FAF4D3',
         },
       },
       keyframes: ({ theme }) => ({
