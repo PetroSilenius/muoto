@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import ArticleCard from './ArticleCard';
 import CommunityPost from './CommunityPost';
 
@@ -22,23 +23,26 @@ export default function Page() {
       <CommunityPost
         title="I've been more okay with my weight recently!"
         content={
-          <p>
-            Jurassic Park was an incredible idea and a magnificent feat of
-            engineering, but poor protocols and a disregard for human safety
-            killed what could have otherwise been one of the best businesses of
-            our generation.
-          </p>
+          <div className="flex flex-row items-center gap-4">
+            <Image
+              src="/output_before.jpeg"
+              alt="Before"
+              width="100"
+              height="100"
+            />
+            <span className="text-2xl">➡️</span>
+            <Image src="/output.jpeg" alt="After" width="100" height="100" />
+          </div>
         }
         reactions={{ heart: 32, clap: 28, star: 14, hundred: 8 }}
       />
       <CommunityPost
-        title="I've gotten used to bit more revealing clothes"
+        title="I've gained confidence to show off my body more"
         content={
           <p>
-            Jurassic Park was an incredible idea and a magnificent feat of
-            engineering, but poor protocols and a disregard for human safety
-            killed what could have otherwise been one of the best businesses of
-            our generation.
+            {
+              "I've gained confidence to show off my body more and more without trying to please anyone. You must make sure there's a strong foundation to your body of positive thinking, that you see yourself objectively as a positive"
+            }
           </p>
         }
         reactions={{ heart: 68, clap: 54, star: 56, hundred: 38 }}
