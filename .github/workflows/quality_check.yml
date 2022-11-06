@@ -12,7 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install packages
-        run: yarn
+        # Ignore scripts so we don't run postinstall which would require database access
+        run: yarn --ignore-scripts
       - name: Lint
         run: yarn lint
       - name: Check types
