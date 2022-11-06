@@ -7,8 +7,12 @@ export default async function Page() {
         <h1 className="text-shadow text-4xl font-medium text-muoto-orange">
           Does this image portray you?
         </h1>
-
-        <StableDiffusionImage />
+        <div
+          className="relative overflow-hidden"
+          style={{ width: '512px', height: '512px' }}
+        >
+          <StableDiffusionImage />
+        </div>
 
         <div className="flex flex-row gap-4 ">
           {['Yes', 'No'].map((option) => {
