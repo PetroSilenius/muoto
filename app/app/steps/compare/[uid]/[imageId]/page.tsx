@@ -9,7 +9,7 @@ export default async function Page({
   params: { imageId: string; uid: string };
 }) {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center gap-4">
       <h1 className="text-shadow text-4xl font-medium text-muoto-orange">
         Is your perception realistic?
       </h1>

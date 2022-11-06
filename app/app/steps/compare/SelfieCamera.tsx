@@ -40,7 +40,7 @@ export default function SelfieCamera() {
       ref={videoRef}
       height="512"
       width="512"
-      className="mt-4 rounded-lg border-4 border-slate-500"
+      className="rounded-lg border-4 border-slate-500"
     />
   );
 }
