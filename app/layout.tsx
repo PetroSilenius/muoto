@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body className="overflow-y-scroll bg-muoto-blue">
-        <div className="grid min-h-screen grid-cols-[min(800px,100%)] place-content-center py-8	">
+        <div className="grid min-h-screen grid-cols-[min(800px,100%)] place-content-center">
           {children}
         </div>
       </body>
