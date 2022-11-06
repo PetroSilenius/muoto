@@ -4,13 +4,13 @@ export default async function Page() {
   return (
     <div className="text-center">
       <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-        <span className="text-shadow block text-muoto-light xl:inline">
+        <p className="text-shadow  text-muoto-light">
           Are you ready to improve your self-image?
-        </span>
-        <span className="text-shadow block text-muoto-dark xl:inline">
+        </p>
+        <p className="text-shadow  text-muoto-dark">
           {/* eslint-disable-next-line react/no-unescaped-entities */}
           Let's start using muoto
-        </span>
+        </p>
       </h1>
       <p className="mx-auto mt-3 max-w-md text-base text-black sm:text-lg md:mt-5 md:max-w-3xl md:text-xl">
         When you work on your physical appearance you see visual results, why
