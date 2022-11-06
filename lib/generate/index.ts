@@ -76,7 +76,6 @@ async function triggerStableDiffusion(userId: string) {
     headers: requestHeaders,
     body: `--${BOUNDARY_IDENTIFIER}\r\nContent-Disposition: form-data; name="text"\r\n\r\n${text}\r\n--${BOUNDARY_IDENTIFIER}--`,
     method: 'POST',
-    cache: 'no-store',
   });
 
   const { id, output_url } = await deepAIResponse.json();
