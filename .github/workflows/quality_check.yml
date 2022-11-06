@@ -16,5 +16,3 @@ jobs:
         run: yarn --ignore-scripts
       - name: Lint
         run: yarn lint
-      - name: Check types
-        run: yarn check-types
