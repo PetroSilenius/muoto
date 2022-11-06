@@ -7,7 +7,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['source.unsplash.com', 'api.deepai.org'],
+    domains: ['images.unsplash.com', 'api.deepai.org'],
   },
 };
 
