@@ -30,6 +30,34 @@ The progress is supported through an anonymous community where people can share 
 
 In [the FigJam board](https://www.figma.com/file/H66nDqEaomLcOmUuFqia8R/Junction---muoto?node-id=0%3A1) we created user flows, SWOT comparison about challenges etc
 
+## Get started
+### Prerequisites
+- docker
+- node
+- yarn
+
+The environment can run completely locally with the help of docker and node.
+
+First things first. Start up that database.
+
+```shell
+docker compose up -d
+```
+
+This command will start a postgres database in detached mode on your computer.
+Next step install dependencies, run migrations and seeders.
+
+```shell
+yarn
+```
+
+We setup a "postinstall" script that runs all needed migrations and seeders to get up and running.
+
+Last thing start the Next.js application
+```shell
+yarn dev
+```
+
 ## Future development 🔮
 
 muoto has a lot of potential and we've gathered current ideas on the backlog in priorisation order
