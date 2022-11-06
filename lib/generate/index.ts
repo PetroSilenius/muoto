@@ -1,6 +1,4 @@
 import client from '@/lib/prismadb';
-import { headers } from 'next/headers';
-// import { getSession } from '@/lib/session';
 
 const API_KEY = process.env.DEEP_AI_API_KEY!;
 const DEEP_AI_URL = process.env.DEEP_AI_URL!;
@@ -20,11 +18,6 @@ export default async function generateImage(image_id?: string): Promise<{
   output_url: string;
   text?: string;
 }> {
-  // const session = await getSession();
-  // if (!session) {
-  //   throw new Error('Unauthorised action');
-  // }
-
   const user = await client.user.findFirst();
 
   if (!image_id) {
@@ -32,7 +25,7 @@ export default async function generateImage(image_id?: string): Promise<{
   }
 
   const image = await client.images.findFirstOrThrow({
-    where: { user_id: user.id },
+    where: { user_id: user?.id },
     orderBy: { created_at: 'asc' },
   });
 
@@ -86,11 +79,13 @@ async function triggerStableDiffusion(user: any) {
 
   const { id, output_url } = await deepAIResponse.json();
 
-  const test = await fetch(`https://api.deepai.org/get_standard_api_result_data/${id}`, {
-    headers: requestHeaders
-  }).then((thing) => thing.json());
-  console.log(JSON.stringify(test)
-  )
+  const test = await fetch(
+    `https://api.deepai.org/get_standard_api_result_data/${id}`,
+    {
+      headers: requestHeaders,
+    },
+  ).then((thing) => thing.json());
+  console.log(JSON.stringify(test));
 
   await client.images.create({
     data: {

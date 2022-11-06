@@ -2,8 +2,10 @@ import SelfieCamera from 'app/app/steps/compare/SelfieCamera';
 import { Suspense } from 'react';
 import StableDiffusionImage from '../../StableDiffusionImage';
 import Skeleton from '../Skeleton';
+import { useRouter } from 'next/navigation';
 
-export default async function Page() {
+export default async function ImageId() {
+  const router = useRouter();
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-shadow text-4xl font-medium text-muoto-orange">
@@ -11,7 +13,7 @@ export default async function Page() {
       </h1>
       <Suspense fallback={<Skeleton />}>
         {/* @ts-ignore */}
-        <StableDiffusionImage />
+        <StableDiffusionImage imageId={router.query.imageId} />
       </Suspense>
       <SelfieCamera />
     </div>
