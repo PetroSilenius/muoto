@@ -9,10 +9,15 @@ export default async function Page({ params }: { params: { uid: string } }) {
         <h1 className="text-shadow text-4xl font-medium text-muoto-orange">
           Does this image portray you?
         </h1>
-        <Suspense fallback={<Skeleton />}>
-          {/* @ts-ignore */}
-          <StableDiffusionImage userId={params.uid} />
-        </Suspense>
+        <div
+          className="relative overflow-hidden"
+          style={{ width: '512px', height: '512px' }}
+        >
+          <Suspense fallback={<Skeleton />}>
+            {/* @ts-ignore */}
+            <StableDiffusionImage userId={params.uid} />
+          </Suspense>
+        </div>
 
         <div className="flex flex-row gap-4 ">
           {['Yes', 'No'].map((option) => {

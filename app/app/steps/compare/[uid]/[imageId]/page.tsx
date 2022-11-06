@@ -13,10 +13,15 @@ export default async function Page({
       <h1 className="text-shadow text-4xl font-medium text-muoto-orange">
         Is your perception realistic?
       </h1>
-      <Suspense fallback={<Skeleton />}>
-        {/* @ts-ignore */}
-        <StableDiffusionImage userId={params.uid} imageId={params.imageId} />
-      </Suspense>
+      <div
+        className="relative overflow-hidden"
+        style={{ width: '512px', height: '512px' }}
+      >
+        <Suspense fallback={<Skeleton />}>
+          {/* @ts-ignore */}
+          <StableDiffusionImage userId={params.uid} imageId={params.imageId} />
+        </Suspense>
+      </div>
       <SelfieCamera />
     </div>
   );

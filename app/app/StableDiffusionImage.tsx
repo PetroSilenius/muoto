@@ -12,5 +12,13 @@ export default async function StableDiffusionImage({
 }: StableDiffusionImageProps) {
   const { output_url } = await generateImage(userId, imageId);
 
-  return <Image src={output_url} width="512" height="512" alt="you" />;
+  return (
+    <Image
+      src={output_url}
+      width="512"
+      height="512"
+      alt="you"
+      style={{ scale: '2', translate: '256px 256px' }}
+    />
+  );
 }
