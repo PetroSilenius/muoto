@@ -4,9 +4,7 @@ import Skeleton from 'app/app/steps/Skeleton';
 
 export default async function Page({
   searchParams,
-}: {
-  searchParams: { uid: string };
-}) {
+}: any) {
   return (
     <form method="POST" action={`/api/steps/result`}>
       <div className="space-y-4">
