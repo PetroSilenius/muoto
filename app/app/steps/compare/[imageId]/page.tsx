@@ -11,12 +11,12 @@ export default async function Page({
       <h1 className="text-shadow text-4xl font-medium text-muoto-orange">
         Is your perception realistic?
       </h1>
-        <div
-            className="relative overflow-hidden"
-            style={{ width: '512px', height: '512px' }}
-        >
-      <StableDiffusionImage imageId={params.imageId} />
-        </div>
+      <div
+        className="relative overflow-hidden"
+        style={{ width: '512px', height: '512px' }}
+      >
+        <StableDiffusionImage imageId={params.imageId} />
+      </div>
       <SelfieCamera />
     </div>
   );
