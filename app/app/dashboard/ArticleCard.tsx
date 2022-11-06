@@ -17,11 +17,12 @@ export default function ArticleCard({
     <div className="flex flex-col overflow-hidden rounded-lg shadow-lg">
       <div className="flex-shrink-0">
         <Image
-          className="h-48 w-full object-cover"
           src={imageHref}
           height={192}
           width={288}
+          priority
           alt=""
+          className="h-48 w-full object-cover"
         />
       </div>
       <div className="flex flex-1 flex-col justify-between  py-2">

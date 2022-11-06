@@ -31,6 +31,7 @@ export default function StableDiffusionImage({
       src={url}
       width="512"
       height="512"
+      priority
       alt="you"
       style={{ scale: '2', translate: '256px 256px' }}
     />

@@ -26,12 +26,19 @@ export default function Page() {
           <div className="flex flex-row items-center gap-4">
             <Image
               src="/output_before.jpeg"
-              alt="Before"
               width="100"
               height="100"
+              priority
+              alt="Before"
             />
             <span className="text-2xl">➡️</span>
-            <Image src="/output.jpeg" alt="After" width="100" height="100" />
+            <Image
+              src="/output.jpeg"
+              width="100"
+              height="100"
+              priority
+              alt="After"
+            />
           </div>
         }
         reactions={{ heart: 32, clap: 28, star: 14, hundred: 8 }}
