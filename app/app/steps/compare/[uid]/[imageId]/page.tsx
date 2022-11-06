@@ -5,8 +5,9 @@ import Skeleton from 'app/app/steps/Skeleton';
 
 export default async function Page({
   params,
-  searchParams,
-}: any) {
+}: {
+  params: { imageId: string; uid: string };
+}) {
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-shadow text-4xl font-medium text-muoto-orange">
@@ -14,10 +15,7 @@ export default async function Page({
       </h1>
       <Suspense fallback={<Skeleton />}>
         {/* @ts-ignore */}
-        <StableDiffusionImage
-          userId={searchParams.uid}
-          imageId={params.imageId}
-        />
+        <StableDiffusionImage userId={params.uid} imageId={params.imageId} />
       </Suspense>
       <SelfieCamera />
     </div>

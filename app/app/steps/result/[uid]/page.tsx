@@ -2,9 +2,7 @@ import { Suspense } from 'react';
 import StableDiffusionImage from 'app/app/StableDiffusionImage';
 import Skeleton from 'app/app/steps/Skeleton';
 
-export default async function Page({
-  searchParams,
-}: any) {
+export default async function Page({ params }: { params: { uid: string } }) {
   return (
     <form method="POST" action={`/api/steps/result`}>
       <div className="space-y-4">
@@ -13,7 +11,7 @@ export default async function Page({
         </h1>
         <Suspense fallback={<Skeleton />}>
           {/* @ts-ignore */}
-          <StableDiffusionImage userId={searchParams.uid} />
+          <StableDiffusionImage userId={params.uid} />
         </Suspense>
 
         <div className="flex flex-row gap-4 ">
