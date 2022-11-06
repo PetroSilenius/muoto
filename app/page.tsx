@@ -7,7 +7,7 @@ export default async function Page() {
         <p className="text-shadow  text-muoto-light">
           Are you ready to improve your self-image?
         </p>
-        <p className="text-shadow  text-muoto-dark">
+        <p className="text-shadow block text-muoto-dark ">
           {/* eslint-disable-next-line react/no-unescaped-entities */}
           Let's start using muoto
         </p>

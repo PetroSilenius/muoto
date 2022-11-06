@@ -43,12 +43,5 @@ export default async function handler(
       QuestionTypeOrder[questionType as keyof typeof QuestionTypeOrder] + 1
     ];
 
-  if (nextQuestionType === 'result') {
-    return res.redirect(
-      302,
-      `/app/steps/${nextQuestionType}/${session.user.id}`,
-    );
-  }
-
   res.redirect(302, `/app/steps/${nextQuestionType}`);
 }

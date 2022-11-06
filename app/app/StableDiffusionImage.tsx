@@ -1,24 +1,38 @@
-import generateImage from '@/lib/generate';
+'use client';
 import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
+import Skeleton from './steps/Skeleton';
 
 interface StableDiffusionImageProps {
-  userId: string;
   imageId?: string;
 }
 
-export default async function StableDiffusionImage({
-  userId,
+export default function StableDiffusionImage({
   imageId,
 }: StableDiffusionImageProps) {
-  const { output_url } = await generateImage(userId, imageId);
+  const ref = useRef(false);
+  const [url, setUrl] = useState(null);
+  useEffect(() => {
+    if (!ref.current) {
+      ref.current = true;
+      fetch(`/api/generate${imageId ? '?imageId=' + imageId : ''}`)
+        .then((res) => res.json())
+        .then(({ output_url }) => {
+          setUrl(output_url);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
+  });
 
-  return (
-    <Image
-      src={output_url}
-      width="512"
-      height="512"
-      alt="you"
-      style={{ scale: '2', translate: '256px 256px' }}
-    />
+  return url ? (
+    <Image src={url}
+           width="512"
+           height="512"
+           alt="you"
+           style={{ scale: '2', translate: '256px 256px' }} />
+  ) : (
+    <Skeleton />
   );
 }

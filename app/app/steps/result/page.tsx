@@ -1,23 +1,14 @@
-import { Suspense } from 'react';
 import StableDiffusionImage from 'app/app/StableDiffusionImage';
-import Skeleton from 'app/app/steps/Skeleton';
 
-export default async function Page({ params }: { params: { uid: string } }) {
+export default async function Page() {
   return (
     <form method="POST" action={`/api/steps/result`}>
       <div className="flex flex-col items-center gap-4">
         <h1 className="text-shadow text-4xl font-medium text-muoto-orange">
           Does this image portray you?
         </h1>
-        <div
-          className="relative overflow-hidden"
-          style={{ width: '512px', height: '512px' }}
-        >
-          <Suspense fallback={<Skeleton />}>
-            {/* @ts-ignore */}
-            <StableDiffusionImage userId={params.uid} />
-          </Suspense>
-        </div>
+
+        <StableDiffusionImage />
 
         <div className="flex flex-row gap-4 ">
           {['Yes', 'No'].map((option) => {

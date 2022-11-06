@@ -23,8 +23,9 @@ export default async function handler(
   if (body.confirm === 'Yes') {
     const image = await client.images.findFirstOrThrow({
       where: { user_id: session.user.id },
+      orderBy: { created_at: 'desc' },
     });
-    redirectUrl = `/app/steps/compare/${session.user.id}/${image.id}`;
+    redirectUrl = `/app/steps/compare/${image.id}`;
   }
 
   res.redirect(303, redirectUrl);
