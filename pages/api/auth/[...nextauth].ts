@@ -19,7 +19,7 @@ export const authOptions = {
     },
   },
   pages: {
-    signIn: '/login',
+    signIn: '/',
   },
   debug: true,
   secret: process.env.SECRET,

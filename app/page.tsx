@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import LogInButton from './LogInButton';
 
 export default async function Page() {
   return (
@@ -7,8 +7,8 @@ export default async function Page() {
         <span className="text-shadow block text-muoto-light xl:inline">
           Are you ready to improve your self-image?
         </span>
-        <span className="block text-shadow text-muoto-dark xl:inline">
-        {/* eslint-disable-next-line react/no-unescaped-entities */}
+        <span className="text-shadow block text-muoto-dark xl:inline">
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
           Let's start using muoto
         </span>
       </h1>
@@ -18,32 +18,16 @@ export default async function Page() {
       </p>
       <div className="mx-auto mt-5 max-w-md sm:flex sm:justify-center md:mt-8">
         <div className="rounded-md shadow">
-          <Link
-            href="/login"
-            className="flex w-full items-center justify-center rounded-md border border-transparent bg-muoto-dark px-8 py-3 text-base font-medium text-white md:py-4 md:px-10 md:text-lg"
-          >
+          <LogInButton className="flex w-full items-center justify-center rounded-md border border-transparent bg-muoto-dark px-8 py-3 text-base font-medium text-white md:py-4 md:px-10 md:text-lg">
             Get started
-          </Link>
+          </LogInButton>
         </div>
         <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-          <Link
-            href="/login"
-            className="flex w-full items-center justify-center rounded-md border border-transparent bg-muoto-light px-8 py-3 text-base font-medium text-muoto-dark md:py-4 md:px-10 md:text-lg"
-          >
+          <LogInButton className="flex w-full items-center justify-center rounded-md border border-transparent bg-muoto-light px-8 py-3 text-base font-medium text-muoto-dark md:py-4 md:px-10 md:text-lg">
             Log in
-          </Link>
+          </LogInButton>
         </div>
       </div>
     </div>
   );
-  /* return (
-    <div classNameName="flex flex-col items-center space-y-8 text-center text-white">
-      <h1 classNameName="text-6xl">Welcome to muoto</h1>
-      <p classNameName="text-2xl">Are you ready to improve your self-image?</p>
-      <Link href="/login" classNameName="text-muoto-dark underline">
-        Log in
-      </Link>
-    </div>
-  );
-   */
 }
