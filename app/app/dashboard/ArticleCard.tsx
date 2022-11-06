@@ -15,14 +15,15 @@ export default function ArticleCard({
 }: ArticleCardProps) {
   return (
     <div className="flex flex-col overflow-hidden rounded-lg shadow-lg">
-      <div className="flex-shrink-0">
+      <div className="relative h-48 flex-shrink-0">
         <Image
           src={imageHref}
-          height={192}
-          width={288}
           priority
+          fill
           alt=""
-          className="h-48 w-full object-cover"
+          className="w-full object-cover"
+          sizes="(max-width: 340px): 150px,(max-width: 500px) 208px,
+              360px"
         />
       </div>
       <div className="flex flex-1 flex-col justify-between  py-2">
