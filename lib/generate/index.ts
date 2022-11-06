@@ -13,20 +13,21 @@ const EMOJI_TO_KEY_WORD_MAP = {
   '😖': 'Disgusted',
 };
 
-export default async function generateImage(image_id?: string): Promise<{
+export default async function generateImage(
+  userId: string,
+  image_id?: string,
+): Promise<{
   id: string;
   output_url: string;
   text?: string;
 }> {
-  const user = await client.user.findFirst();
-
   if (!image_id) {
-    return triggerStableDiffusion(user);
+    return triggerStableDiffusion(userId);
   }
 
   const image = await client.images.findFirstOrThrow({
-    where: { user_id: user?.id },
-    orderBy: { created_at: 'asc' },
+    where: { user_id: userId },
+    orderBy: { created_at: 'desc' },
   });
 
   return {
@@ -35,9 +36,9 @@ export default async function generateImage(image_id?: string): Promise<{
   };
 }
 
-async function triggerStableDiffusion(user: any) {
+async function triggerStableDiffusion(userId: string) {
   const answerer = await client.answers.findMany({
-    where: { user_id: user?.id },
+    where: { user_id: userId },
   });
 
   const options = await client.options.findMany({
@@ -62,7 +63,7 @@ async function triggerStableDiffusion(user: any) {
     })
     .join(' ');
   const gender = 'Woman';
-  const text = `${gender} On the ground ${keyWords}`;
+  const text = `${gender} On the ground ${keyWords}, Realistic Cartoon`;
 
   const requestHeaders = new Headers();
   requestHeaders.set('Api-Key', API_KEY);
@@ -79,18 +80,10 @@ async function triggerStableDiffusion(user: any) {
 
   const { id, output_url } = await deepAIResponse.json();
 
-  const test = await fetch(
-    `https://api.deepai.org/get_standard_api_result_data/${id}`,
-    {
-      headers: requestHeaders,
-    },
-  ).then((thing) => thing.json());
-  console.log(JSON.stringify(test));
-
   await client.images.create({
     data: {
       url: output_url,
-      users: { connect: { id: user.id } },
+      users: { connect: { id: userId } },
     },
   });
 

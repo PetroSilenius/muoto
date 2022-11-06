@@ -9,7 +9,7 @@ export default async function handler(
 ) {
   const session = await unstable_getServerSession(req, res, authOptions);
   if (!session) {
-    res.status(401).json({ data: 'Unauthorized' });
+    return res.status(401).json({ data: 'Unauthorized' });
   }
 
   const body = req.body;
@@ -22,9 +22,9 @@ export default async function handler(
   let redirectUrl = '/app/steps/feeling';
   if (body.confirm === 'Yes') {
     const image = await client.images.findFirstOrThrow({
-      where: { user_id: session?.user.id },
+      where: { user_id: session.user.id },
     });
-    redirectUrl = '/app/steps/compare/' + image?.id;
+    redirectUrl = `/app/steps/compare/${image.id}?uid=${session.user.id}`;
   }
 
   res.redirect(303, redirectUrl);
