@@ -17,7 +17,10 @@ export default async function Page({
       </h1>
       <Suspense fallback={<Skeleton />}>
         {/* @ts-ignore */}
-        <StableDiffusionImage userId={searchParams.uid} imageId={params.imageId} />
+        <StableDiffusionImage
+          userId={searchParams.uid}
+          imageId={params.imageId}
+        />
       </Suspense>
       <SelfieCamera />
     </div>
