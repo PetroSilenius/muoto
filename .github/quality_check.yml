@@ -1,0 +1,19 @@
+name: Quality check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install packages
+        run: yarn
+      - name: Lint
+        run: yarn lint
+      - name: Check types
+        run: yarn check-types
